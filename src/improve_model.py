@@ -207,10 +207,11 @@ def main():
 
     # ── fine-tune ─────────────────────────────────────────────────────────────
     print("\n[5/6] Fine-tuning …")
+    # 15 epochs on CPU ~= 90 min; enough to show clear improvement
     history = model.fit(
         train_gen, steps_per_epoch=steps,
         validation_data=val_gen, validation_steps=val_steps,
-        epochs=40, callbacks=callbacks, verbose=1,
+        epochs=15, callbacks=callbacks, verbose=1,
     )
 
     # save history
